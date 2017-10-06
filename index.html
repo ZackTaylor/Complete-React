@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>svideo</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script>
+      const ce = React.createElement
+      const MyTitle = function (props) {
+        return (
+          ce('div', null,
+            ce('h1', { style: {color: props.color } }, props.title)
+          )
+        )
+      }
+      const MyFirstComponent = function () {
+        return ce('div', null,
+          ce(MyTitle, { title: 'Game of Thrones', color: 'YellowGreen' }),
+          ce(MyTitle, { title: 'Rick and Morty', color: 'GreenYellow' }),
+          ce(MyTitle, { title: 'House Hunters', color: 'LimeGreen' }),
+          ce(MyTitle, { title: 'Stranger Things', color: 'Lime' })
+        )
+      }
+
+      ReactDOM.render(
+        ce(MyFirstComponent),
+        document.getElementById('app')
+      )
+    </script>
+  </body>
+</html>
